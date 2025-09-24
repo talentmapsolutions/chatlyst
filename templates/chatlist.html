@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="chat-title">Flask Chat 💬</h1>
+<h1 class="chat-title">TMS Asistant Chat 💬</h1>
 <div class="chat-area">
     {% for msg in data %}
         <div class="chat-bubble {% if msg.role == 'user' %}user{% else %}assistant{% endif %}">
@@ -19,3 +19,4 @@
     <button type="submit">Send</button>
 </form>
 {% endblock %}
+
