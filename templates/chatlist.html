@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="chat-title">Flask Chat 💬</h1>
+<div class="chat-area">
+    {% for msg in data %}
+        <div class="chat-bubble {% if msg.role == 'user' %}user{% else %}assistant{% endif %}">
+            <div class="chat-header">
+                <span class="avatar">{% if msg.role == 'user' %}🧑{% else %}🤖{% endif %}</span>
+                <span class="username">{{ msg.username }}</span>
+                <span class="timestamp">{{ msg.timestamp }}</span>
+            </div>
+            <div class="chat-content">{{ msg.content }}</div>
+        </div>
+    {% endfor %}
+</div>
+<form method="post" class="chat-form">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="text" name="content" placeholder="Type your message…" required>
+    <button type="submit">Send</button>
+</form>
+{% endblock %}
